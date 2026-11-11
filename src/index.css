@@ -1,0 +1,161 @@
+
+@import "tailwindcss";
+
+
+@theme {
+  --color-cyber-bg: #050508;
+  --color-cyber-card: #0a0d14;
+  --color-cyber-border: #1b2438;
+
+  --color-cyber-green: #00ff66;
+  --color-cyber-greenGlow: rgba(0, 255, 102, 0.15);
+
+  --color-cyber-cyan: #00f3ff;
+  --color-cyber-cyanGlow: rgba(0, 243, 255, 0.15);
+
+  --color-cyber-magenta: #ff0055;
+  --color-cyber-text: #c9d1d9;
+  --color-cyber-muted: #6e7681;
+
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "JetBrains Mono", monospace;
+    background-color: var(--color-cyber-bg);
+    color: var(--color-cyber-text);
+    overflow-x: hidden;
+    min-width: 320px;
+    margin: 0;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+
+.crt::before {
+  content: "";
+  display: block;
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.35) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.03),
+      rgba(0, 255, 0, 0.01),
+      rgba(0, 0, 255, 0.03)
+    );
+  z-index: 50;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+.glow-green {
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b2438;
+  border-radius: 4px;
+  border: 1px solid #00ff66;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff66;
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+::selection {
+  color: #050508;
+  background: #00ff66;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #00ff66;
+  outline-offset: 4px;
+}
