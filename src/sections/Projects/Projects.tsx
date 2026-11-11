@@ -46,11 +46,18 @@ function Projects() {
         <div
           className="carousel-track"
           style={{
+            width: `${totalPages * 100}%`,
             transform: `translateX(-${currentIndex * (100 / totalPages)}%)`,
           }}
         >
           {pages.map((page, index) => (
-            <div key={index} className="flex w-full shrink-0 gap-6">
+            <div
+              key={index}
+              className="flex shrink-0 gap-6"
+              style={{
+                flex: `0 0 ${100 / totalPages}%`,
+              }}
+            >
               {page.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}

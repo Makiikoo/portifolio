@@ -8,7 +8,7 @@ function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="group flex w-full shrink-0 flex-col justify-between rounded-xl border border-cyber-border bg-cyber-card p-6 transition-all duration-300 hover:border-cyber-green/60 md:w-[calc(50%-12px)]">
       <div>
-        {/* Card Header */}
+        
         <div className="mb-4 flex items-center justify-between">
           <i
             className={`fa-regular fa-folder-open text-2xl ${project.iconColor}`}
@@ -39,7 +39,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
 
-        {/* Project Information */}
+        
         <h3 className="mb-2 text-xl font-bold text-white transition-colors group-hover:text-cyber-green">
           {project.title}
         </h3>
@@ -50,7 +50,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <div>
-        {/* Technologies */}
+        
         <div className="mb-4 flex flex-wrap gap-2 text-xs">
           {project.technologies.map((technology, index) => (
             <span
@@ -69,7 +69,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        {/* Repository Statistics */}
+      
         <div className="flex items-center gap-4 border-t border-cyber-border/40 pt-3 text-xs text-cyber-muted">
           <span>
             <i className="fa-regular fa-star mr-1 text-yellow-500" />
